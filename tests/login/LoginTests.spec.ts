@@ -38,6 +38,15 @@ test.describe('Login screen verifications', Allure({ epic: 'Authentication', sto
         await loginActions.checkLoginButtonDisplayed();
     })
 
+    test('login screen displays forgot password link', Allure({
+        description: 'Verifies the Forgot Password? link is visible on the staff login page',
+        tags: ['smoke'],
+        requirement: 'AUTH-01',
+        tmsLink: 'HAT-T78',
+    }), async ({ loginActions }) => {
+        await loginActions.checkForgotPasswordLinkDisplayed();
+    })
+
 })
 
 test.describe('Login functionality', Allure({ epic: 'Authentication', story: 'Login functionality verifications' }), () => {

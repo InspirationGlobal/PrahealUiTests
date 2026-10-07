@@ -25,6 +25,11 @@ export class LoginActions extends LoginPage {
     await this.loginButton.checkIsVisible()
   }
 
+  @Step('Verify forgot password link is displayed')
+  async checkForgotPasswordLinkDisplayed() {
+    await this.forgotPasswordLink.checkIsVisible()
+  }
+
   @Step('Enter mobile number "{0}"')
   private async enterMobileNumber(mobileNumber: string) {
     await this.mobileField.clear()
