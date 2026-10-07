@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { BaseElement, Button, ErrorMessage, Input } from '../decorator';
+import { BaseElement, Button, ErrorMessage, Input, Link } from '../decorator';
 import { BasePage } from './BasePage';
 
 export class LoginPage extends BasePage {
@@ -11,6 +11,7 @@ export class LoginPage extends BasePage {
   protected readonly loginErrorMessage: ErrorMessage;
   protected readonly mobileValidationMessage: BaseElement;
   protected readonly passwordValidationMessage: BaseElement;
+  protected readonly forgotPasswordLink: Link;
 
   constructor(page: Page) {
     super(page);
@@ -20,5 +21,6 @@ export class LoginPage extends BasePage {
     this.loginErrorMessage = this.errorMessage('div[role="alert"]');
     this.mobileValidationMessage = this.element('label.invalid-input[for="login_mobile"]');
     this.passwordValidationMessage = this.element('label.invalid-input[for="login_password"]');
+    this.forgotPasswordLink = this.link('a[href="/staff-forgot-password"]');
   }
 }
