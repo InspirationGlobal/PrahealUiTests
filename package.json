@@ -1,0 +1,32 @@
+{
+  "name": "prahealuitests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "allure:generate": "npm run -s allure:flatten && rm -rf allure-report && allure generate allure-results -o allure-report",
+    "allure:open": "allure open allure-report",
+    "test:allure": "npm test; npm run allure:generate && npm run allure:open",
+    "test:smoke": "playwright test --grep @smoke",
+    "zephyr": "node --env-file=.env scripts/zephyr.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "lint:ci": "eslint . --format ./lint/github-formatter.mjs",
+    "requirements:csv": "node scripts/requirements-csv.mjs",
+    "allure:flatten": "node scripts/allure-flatten-attachments.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "allure": "^3.19.1",
+    "allure-playwright": "^3.13.0",
+    "eslint": "^10.11.0",
+    "typescript": "~6.0",
+    "typescript-eslint": "^8.71.0"
+  }
+}
